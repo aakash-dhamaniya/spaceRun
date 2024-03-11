@@ -1,11 +1,15 @@
-import Game from "./components/Game";
-import "./app.css";
-function App() {
+import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+
+const App = () => {
   return (
-    <div className="App">
-      <Game />
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
