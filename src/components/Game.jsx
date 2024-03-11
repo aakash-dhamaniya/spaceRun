@@ -10,7 +10,7 @@ function Game() {
       type: Phaser.AUTO,
       backgroundColor: 0x222222,
       scale: {
-        mode: Phaser.Scale.RESIZE,
+        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         parent: "mainScreen",
         width: 320,
@@ -39,7 +39,7 @@ function Game() {
     };
   }, []);
 
-  return <div id="mainScreen" style={{ width: "320px", height: "480px" }} />;
+  return <div id="mainScreen" style={{ width: window.innerWidth, height: window.innerHeight }} />;
 }
 
 export default Game;
