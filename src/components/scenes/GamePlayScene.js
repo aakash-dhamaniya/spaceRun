@@ -11,6 +11,7 @@ let gameOptions = {
 class GameScene extends Phaser.Scene {
   //functions
   moveShip(p) {
+    console.log(p.x);
     let speedMultipler = p.x < this.game.config.width / 2 ? -1 : 1;
     this.ship.body.velocity.x =
       gameOptions.shipHorizontalSpeed * speedMultipler;
@@ -99,7 +100,13 @@ class GameScene extends Phaser.Scene {
       function () {
         console.log(this.scene);
         this.physics.pause();
-        // this.scene.start("gamePlayScene");
+        this.gameOverText=this.add.text(this.game.config.width/2,this.game.config.height/2,"Game over!\n Click here to play again",this.textStyle).setOrigin(0.5)
+        this.gameOverText.setInteractive({useHandCursor:true})
+        this.gameOverText.on("pointerdown",()=>{
+          this.scene.start("gamePlayScene");
+        })
+        // 
+
       },
       function () {
         if (this.score > this.highScore) {
